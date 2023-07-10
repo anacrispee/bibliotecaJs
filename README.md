@@ -9,26 +9,34 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 
 ## Instalação de utilitários necessários pra rodar o projeto:
 1. Instalar [Nodejs](https://nodejs.org/en) na máquina.
+
 2. Criar o repositório do projeto no Github (ou outra ferramenta de versionamento).
+
 3. Clonar o projeto na sua máquina pelo VSCode.
+
 4. Acessar o diretório do projeto pelo terminal (terminal do VSCode ou CMD do seu SO) pelo comando:
-    ```cd C:\Users\NomedoUsuario\Diretório\DiretórioDoProjeto```<br>
+    <br>```cd C:\Users\NomedoUsuario\Diretório\DiretórioDoProjeto```<br>
     No meu caso, como ele está na partição C e no Desktop, ficará:
-    ```cd C:\Users\Ana\Desktop\intro-nodejs```
+    <br>```cd C:\Users\Ana\Desktop\intro-nodejs```<br>
+
 5. Criar um arquivo package.json com o comando:
-    ```npm init -y```<br>
+    <br>```npm init -y```<br>
     Ele terá as informações necessárias sobre as dependências do seu projeto.
+
 6. Instalar o Node no diretório do seu projeto com o comando:
-    ```npm install node```<br>
+    <br>```npm install node```<br>
     Por meio disso ele irá instalar na pasta do seu projeto tudo que é necessário para criar um servidor.
+
 7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu proejto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
-    ```npm install nodemon```
+   <br>```npm install nodemon```<br>
+
 8. Instalar o Express (um framework que fornece recursos para criação de servidores web e rotas):
-    ```npm install express```
+    <br>```npm install express```<br>
+
 9. Instalar o Sequelize (ORM ou Objetc Relational Mapping, facilita a manipulação com o banco de dados)
-    ```npm install sequelize```
+    <br>```npm install sequelize```<br>
     Instalar driver para o banco de dados que será utilizado, nesse caso, MySQL:
-    ```npm install --save mysql2```
+    <br>```npm install --save mysql2```<br>
 
 ## Criando servidor com Express:
 1. Criar um arquivo chamado app.js com as configurações do servidor:
@@ -43,7 +51,8 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
         
     /* Intrução pro servidor "escutar" pela porta de número 3000, ou seja, o servidor está esperando
     por solicitações nessa porta. */
-    app.listen(3000); ```
+    app.listen(3000);
+```
 
 2. Criando rotas para o servidor:
 ```javascript
@@ -57,7 +66,8 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     arquivo ("senFile") cujo nome do diretório ("__dirname) é  "index.html" que está na pasta "frontend". */
     app.get("/inicio", function(req, res){
         res.sendFile(__dirname + "/frontend/index.html");
-    }) ```
+    })
+```
 
 ## Conectando banco de dados com Sequelize:
 1. Crie um arquivo "bd.js", nele estarão as configurações de conexão do banco de dados:
@@ -69,7 +79,8 @@ const Sequelize = require('sequelize');
     const sequelize = new Sequelize('mysql', 'anacrispee', 'Jesus!&', {
         host: 'localhost',
         dialect: 'mysql'
-    });```
+    });
+```
 
 2. Crie um trecho de código para testar a conexão do BD:
 ```javascript
