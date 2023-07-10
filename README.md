@@ -7,7 +7,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 * **Express:** framework que gerencia requisições e respostas e gerencia rotas de servidor.
 * **Sequelize:** biblioteca de ORM (Object-Relational Mapping), facilita a interação com bancos de dados relacionais usando JavaScript.
 
-## Instalação de utilitários necessários pra rodar o projeto:
+## Instalação dos utilitários necessários pra rodar o projeto:
 1. Instalar [Nodejs](https://nodejs.org/en) na máquina.
 
 2. Criar o repositório do projeto no Github (ou outra ferramenta de versionamento).
