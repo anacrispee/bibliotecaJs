@@ -1,11 +1,11 @@
 # Introdução ao Nodejs
-Introdução ao Nodejs, NPM, Express e Sequelize.
+Introdução ao Nodejs, NPM, Express e Prisma.
 
 ## O que são:
 * **Nodejs:** ambiente de execução de JavaScript no lado do servidor.
 * **NPM:** Node Package Manager, gerenciador de pacotes para o ecossistema Nodejs.
 * **Express:** framework que gerencia requisições e respostas e gerencia rotas de servidor.
-* **Sequelize:** biblioteca de ORM (Object-Relational Mapping), facilita a interação com bancos de dados relacionais usando JavaScript.
+* **Prisma:** biblioteca de ORM (Object-Relational Mapping), facilita a interação com bancos de dados relacionais usando JavaScript.
 
 ## Instalação dos utilitários necessários pra rodar o projeto:
 1. Instalar [Nodejs](https://nodejs.org/en) na máquina.
@@ -31,11 +31,14 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 8. Instalar o Express:
     <br>```npm install express```<br>
 
-9. Instalar o Sequelize:
-    <br>```npm install sequelize```<br>
+9. Instalar o Prisma:
+    <br>```npm install prisma --save-dev```<br>
 
-10. Instalar driver para o banco de dados que será utilizado, nesse caso, MySQL:
-    <br>```npm install --save mysql2```<br>
+10. Instalar o Prisma CLI (Comand Line Interface):
+    <br>```npx prisma```<br>
+
+11. Criar o modelo de arquivo de schema:
+    <br>```npx prisma init```<br>
 
 ## Criando servidor com Express:
 1. Criar um arquivo chamado app.js com as configurações do servidor:
@@ -68,27 +71,4 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     })
 ```
 
-## Conectando banco de dados com Sequelize:
-1. Crie um arquivo "bd.js", nele estarão as configurações de conexão do banco de dados:
-```javascript
-    /* Criação de constante importando os módulos do Sequelize instalados.*/
-const Sequelize = require('sequelize');
-
-/* Criação de uma instância adicionando as configurações de conexão com o banco de dados. */
-    const sequelize = new Sequelize('mysql', 'anacrispee', 'Jesus!&', {
-        host: 'localhost',
-        dialect: 'mysql'
-    });
-```
-
-2. Crie um trecho de código para testar a conexão do BD:
-```javascript
-    /* Testando a conexão do banco de dados.
-    Nesse caso é feita uma promise em que, se a conexão der certo ("then"), irá imprimir uma mensagem
-    de sucesso; caso contrário ("catch"), imprimirá uma mensagem de erro seguido pela descrição do erro.*/
-    sequelize.authenticate().then(function(){
-        console.log("Conexão com o BD realizada com sucesso!");
-    }).catch(function(err){
-        console.log("Erro ao conectra o banco de dados" + err);
-    })
-```
+## Conectando banco de dados com Prisma:
