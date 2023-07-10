@@ -24,8 +24,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     Ele terá as informações necessárias sobre as dependências do seu projeto.
 
 6. Instalar o Node no diretório do seu projeto com o comando:
-    <br>```npm install node```<br>
-    Por meio disso ele irá instalar na pasta do seu projeto tudo que é necessário para criar um servidor.
+    <br>```npm install nodejs```<br>
 
 7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu proejto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
    <br>```npm install nodemon```<br>
