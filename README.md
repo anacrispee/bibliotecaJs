@@ -84,8 +84,14 @@ datasource db {
   url      = "mysql://anacrispee:Jesus!&@localhost:3306/bibliotecanodejs"
 }
 ```
-2. Introduza ao Prisma os dados do seu banco com o seguinte comando no terminal:
+### Configurando o Prisma para o projeto:
+1. Introduza ao Prisma os dados do seu banco com o seguinte comando no terminal:
    <br>```npx prisma db pull```<br>
 
-3. Em seguida, acesse o Prisma Studio, uma interface onde você consegue visualizar o seu banco e verificar se a conexão deu certo:
+2. Em seguida, acesse o Prisma Studio, uma interface onde você consegue visualizar o seu banco e verificar se a conexão deu certo:
    <br>```npx prisma studio```<br>
+
+3. Instale o Prisma Client, uma biblioteca que fornece uma interface de programação para acessar e manipular dados:
+   <br>```npm install @prisma/client```<br>
+   Depois é preciso **gerar** o Prisma Client com o código:
+   <br>```npx prisma generate```<br>
