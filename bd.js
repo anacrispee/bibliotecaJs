@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 /* Criação de uma instância adicionando as configurações de conexão com o banco de dados. */
-const sequelize = new Sequelize('mysql', 'anacrispee', 'Jesus!&', {
+const sequelize = new Sequelize('bibliotecanodejs', 'anacrispee', 'Jesus!&', {
     host: 'localhost',
     dialect: 'mysql'
 });

@@ -17,6 +17,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     Por meio disso ele irá instalar na pasta do seu projeto tudo que é necessário para criar um servidor.
 7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu proejto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
     npm install nodemon
+    - Para parar o servidor, use o atalho de teclas Ctrl+C. 
 8. Instalar o Express (um framework que fornece recursos para criação de servidores web e rotas):
     npm install express
 9. Instalar o Sequelize (ORM ou Objetc Relational Mapping, facilita a manipulação com o banco de dados)
