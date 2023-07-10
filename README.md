@@ -19,22 +19,22 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     No meu caso, como ele está na partição C e no Desktop, ficará:
     <br>```cd C:\Users\Ana\Desktop\intro-nodejs```<br>
 
-5. Criar um arquivo package.json com o comando:
+5. Criar um arquivo package.json com o comando (um arquivo que conterá as informações necessárias sobre as dependências do seu projeto):
     <br>```npm init -y```<br>
-    Ele terá as informações necessárias sobre as dependências do seu projeto.
 
 6. Instalar o Node no diretório do seu projeto com o comando:
     <br>```npm install nodejs```<br>
 
-7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu proejto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
+7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu projeto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
    <br>```npm install nodemon```<br>
 
-8. Instalar o Express (um framework que fornece recursos para criação de servidores web e rotas):
+8. Instalar o Express:
     <br>```npm install express```<br>
 
-9. Instalar o Sequelize (ORM ou Objetc Relational Mapping, facilita a manipulação com o banco de dados)
+9. Instalar o Sequelize:
     <br>```npm install sequelize```<br>
-    Instalar driver para o banco de dados que será utilizado, nesse caso, MySQL:
+
+10. Instalar driver para o banco de dados que será utilizado, nesse caso, MySQL:
     <br>```npm install --save mysql2```<br>
 
 ## Criando servidor com Express:
