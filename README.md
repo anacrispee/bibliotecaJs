@@ -72,3 +72,15 @@ Introdução ao Nodejs, NPM, Express e Prisma.
 ```
 
 ## Conectando banco de dados com Prisma:
+1. Será criado no diretório do projeto um arquivo chamado "schema.prisma" já pré preenchido, onde será necessário apenas colocar as informações referentes ao seu banco de dados:
+```prisma
+   generator client {
+  provider = "prisma-client-js"
+}
+
+//Na propriedade "provider" o valor será o seu banco de dados, e a "url" será as informações de coneção para o seu BD.
+datasource db {
+  provider = "mysql"
+  url      = "mysql://anacrispee:Jesus!&@localhost:3306/bibliotecanodejs"
+}
+```
