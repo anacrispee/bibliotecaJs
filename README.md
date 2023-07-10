@@ -95,3 +95,5 @@ datasource db {
    <br>```npm install @prisma/client```<br>
    Depois é preciso **gerar** o Prisma Client com o código:
    <br>```npx prisma generate```<br>
+
+### Consultando o banco de dados com Prisma:
