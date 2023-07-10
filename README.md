@@ -1,19 +1,25 @@
 # Introdução ao Nodejs
 Introdução ao Nodejs, NPM, Express e Sequelize.
 
+## O que são:
+* **Nodejs:** ambiente de execução de JavaScript no lado do servidor.
+* **NPM:** Node Package Manager, gerenciador de pacotes para o ecossistema Nodejs.
+* **Express:** framework que gerencia requisições e respostas e gerencia rotas de servidor.
+* **Sequelize:** biblioteca de ORM (Object-Relational Mapping), facilita a interação com bancos de dados relacionais usando JavaScript.
+
 ## Instalação de utilitários necessários pra rodar o projeto:
-1. Instalar Nodejs na máquina.
-2. Criar o projeto no Github (ou outra ferramenta de versionamento).
+1. Instalar [Nodejs](https://nodejs.org/en) na máquina.
+2. Criar o repositório do projeto no Github (ou outra ferramenta de versionamento).
 3. Clonar o projeto na sua máquina pelo VSCode.
-4. Acessar o diretório do projeto pelo terminal (terminal do VSCode, ou cmd do seu SO) pelo comando:
+4. Acessar o diretório do projeto pelo terminal (terminal do VSCode ou CMD do seu SO) pelo comando:
     ```cd C:\Users\NomedoUsuario\Diretório\DiretórioDoProjeto```<br>
     No meu caso, como ele está na partição C e no Desktop, ficará:
     ```cd C:\Users\Ana\Desktop\intro-nodejs```
 5. Criar um arquivo package.json com o comando:
-    ```npm init -y```
+    ```npm init -y```<br>
     Ele terá as informações necessárias sobre as dependências do seu projeto.
 6. Instalar o Node no diretório do seu projeto com o comando:
-    ```npm install node```
+    ```npm install node```<br>
     Por meio disso ele irá instalar na pasta do seu projeto tudo que é necessário para criar um servidor.
 7. Instalar o Nodemon (um utilitário que reconhece as alterações nos arquivos do seu proejto, atualizando-o sem precisar parar e iniciar o servidor criado manualmente):
     ```npm install nodemon```
@@ -26,7 +32,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 
 ## Criando servidor com Express:
 1. Criar um arquivo chamado app.js com as configurações do servidor:
-```
+```javascript
     /* Criar uma constante chamada express, atribuindo o módulo do express necessário pra criar
     o servidor usando o framework Express. */
     const express = require('express');
@@ -40,7 +46,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
     app.listen(3000); ```
 
 2. Criando rotas para o servidor:
-```
+```javascript
     /* Definição da rota raíz ("/") com a definição de uma função de requisição e resposta HTTP.
     Neste caso, a resposta está enviando um "Hello World" para o cliente (res.send). */
     app.get("/", function(req, res) {
@@ -55,7 +61,7 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 
 ## Conectando banco de dados com Sequelize:
 1. Crie um arquivo "bd.js", nele estarão as configurações de conexão do banco de dados:
-```
+```javascript
     /* Criação de constante importando os módulos do Sequelize instalados.*/
 const Sequelize = require('sequelize');
 
@@ -66,7 +72,7 @@ const Sequelize = require('sequelize');
     });```
 
 2. Crie um trecho de código para testar a conexão do BD:
-```
+```javascript
     /* Testando a conexão do banco de dados.
     Nesse caso é feita uma promise em que, se a conexão der certo ("then"), irá imprimir uma mensagem
     de sucesso; caso contrário ("catch"), imprimirá uma mensagem de erro seguido pela descrição do erro.*/
