@@ -6,9 +6,9 @@ Introdução ao Nodejs, NPM, Express e Sequelize.
 2. Criar o projeto no Github (ou outra ferramenta de versionamento).
 3. Clonar o projeto na sua máquina pelo VSCode.
 4. Acessar o diretório do projeto pelo terminal (terminal do VSCode, ou cmd do seu SO) pelo comando:
-    cd C:\Users\NomedoUsuario\Diretório\DiretórioDoProjeto
+    ```cd C:\Users\NomedoUsuario\Diretório\DiretórioDoProjeto```
     No meu caso, como ele está na partição C e no Desktop, ficará:
-    cd C:\Users\Ana\Desktop\intro-nodejs
+    ```cd C:\Users\Ana\Desktop\intro-nodejs```
 5. Criar um arquivo package.json com o comando:
     npm init -y
     Ele terá as informações necessárias sobre as dependências do seu projeto.
