@@ -96,4 +96,66 @@ datasource db {
    Depois é preciso **gerar** o Prisma Client com o código:
    <br>```npx prisma generate```<br>
 
-### Consultando o banco de dados com Prisma:
+### Definindo o banco de dados com Prisma:
+No arquivo "schema.prisma", você define as tabelas do seu banco:
+Nos modelos estão o nome da categoria, o tipo de dado e as informações adicionais, como por exemplo "autoincrement".
+```prisma
+model categoria {
+  id_categoria   Int      @id @default(autoincrement())
+  nome_categoria String   @db.VarChar(45)
+  livros         livros[]
+}
+
+model livros {
+  id_livro     Int       @id @default(autoincrement())
+  nome_livro   String?   @db.VarChar(45)
+  autor_livro  String?   @db.VarChar(45)
+  id_categoria Int
+  categoria    categoria @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction, map: "id_categoriafk")
+
+  @@index([id_categoria], map: "id_categoriafk")
+}
+```
+
+### Querys com Prisma:
+Você irá criar um arquivo que pode ter nome "index.js", onde terão todas as suas querys com seu banco de dados. Ele terá a seguinte estrutura:
+```javascript
+/* Importando o PrismaClient constructor do módulo do Prisma do Node e o instanciando */
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
+
+/* Cria uma função assíncrona onde alocará as manipulações com o banco de dados. */
+async function main() {
+  //Aqui dentro dessa função assíncrona você vai colocar suas querys.
+}
+
+/* Chama a função "main" criada e a fecha quando finalizada a manipulação com BD. ("process.exit"). */
+main()
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
+```
+#### Consultando o banco de dados com FindMany():
+    "SELECT * FROM categorias"
+```javascript
+    const allCategorias = await prisma.categoria.findMany()
+    console.log(allCategorias)
+```
+#### Inserindo dados em uma tabela:
+    "INSERT INTO livros (nome_livro, autor_livro, id_categoria, categoria) VALUES..."
+    ```javascript
+      await prisma.livros.create({
+        data: {
+          nome_livro: 'Mil Ervas e Fungos Mágicos',
+          autor_livro: 'Fílida Spore',
+          id_categoria: 1,
+        },
+      })
+      const allLivros = await prisma.livros.findMany()
+      console.log(allLivros)
+    ```
