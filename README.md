@@ -157,3 +157,15 @@ main()
       },
 })
 ```
+#### Inserindo dados em duas tabelas relacionadas:
+```javascript
+    await prisma.categoria.create({
+      data: {
+        nome_categoria: 'Defesa Contra as Artes das Trevas',
+        livros: { create: {
+          nome_livro: 'As Forças das Trevas: Um Guia de Autoproteção',
+          autor_livro: 'Quintino Trimble',
+        }}
+      }
+    })
+```
