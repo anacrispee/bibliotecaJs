@@ -147,15 +147,12 @@ main()
     console.log(allCategorias)
 ```
 #### Inserindo dados em uma tabela:
-"INSERT INTO livros (nome_livro, autor_livro, id_categoria, categoria) VALUES..."
-    ```javascript
-      await prisma.livros.create({
-        data: {
-          nome_livro: 'Mil Ervas e Fungos Mágicos',
-          autor_livro: 'Fílida Spore',
-          id_categoria: 1,
-        },
-      })
-      const allLivros = await prisma.livros.findMany()
-      console.log(allLivros)
-    ```
+```javascript
+  await prisma.livros.create({
+    data: {
+      nome_livro: 'Mil Ervas e Fungos Mágicos',
+      autor_livro: 'Fílida Spore',
+      id_categoria: 1,
+      },
+})
+```
