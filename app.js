@@ -6,10 +6,6 @@ const express = require('express');
 que pode ser usada pra definir rotas. */
 const app = express();
 
-/* Cria uma instância paara importar as configurações de conexão do banco de dados
-do arquivo "bd.js" */
-const bd = require("./bd");
-
 /* Definição da rota raíz ("/") com a definição de uma função de requisição e resposta HTTP.
 Neste caso, a resposta está enviando um "Hello World" para o cliente (res.send). */
 app.get("/", function(req, res) {
