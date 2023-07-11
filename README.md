@@ -147,6 +147,7 @@ main()
     console.log(allCategorias)
 ```
 #### Inserindo dados em uma tabela:
+"INSERT INTO livros (nome_livro, autor_livro, id_categoria) VALUES..."
 ```javascript
   await prisma.livros.create({
     data: {
