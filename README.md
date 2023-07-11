@@ -141,13 +141,13 @@ main()
   })
 ```
 #### Consultando o banco de dados com FindMany():
-    "SELECT * FROM categorias"
+"SELECT * FROM categorias"
 ```javascript
     const allCategorias = await prisma.categoria.findMany()
     console.log(allCategorias)
 ```
 #### Inserindo dados em uma tabela:
-    "INSERT INTO livros (nome_livro, autor_livro, id_categoria, categoria) VALUES..."
+"INSERT INTO livros (nome_livro, autor_livro, id_categoria, categoria) VALUES..."
     ```javascript
       await prisma.livros.create({
         data: {
