@@ -8,7 +8,10 @@ async function main() {
     /* SELECT * FROM categorias: */
     const allCategorias = await prisma.categoria.findMany()
     console.log(allCategorias)
-}
+
+    const allLivros = await prisma.livros.findMany()
+    console.log(allLivros)
+  }
 
 /* Chama a função "main" criada e a fecha quando finalizada a manipulação com BD. ("process.exit"). */
 main()
