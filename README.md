@@ -117,7 +117,7 @@ model livros {
 }
 ```
 
-### Querys com Prisma:
+### Queries com Prisma:
 Você irá criar um arquivo que pode ter nome "index.js", onde terão todas as suas querys com seu banco de dados. Ele terá a seguinte estrutura:
 ```javascript
 /* Importando o PrismaClient constructor do módulo do Prisma do Node e o instanciando */
@@ -186,4 +186,24 @@ await prisma.livros.delete({
     id_livro: 3,
   }
 })
+```
+### Queries Aninhadas:
+"INSERT INTO categoria (nome_categoria) VALUES ('Adivinhação');"
+*INSERT INTO livros (nome_livro, autor_livro) VALUES..."
+```javascript
+  await prisma.categoria.create({
+    data: {
+      nome_categoria: 'Adivinhação',
+      livros: { create: [
+        {
+          nome_livro: 'Oráculo dos Sonhos',
+          autor_livro: 'Inigo Imago'},
+        {
+          nome_livro: 'Desvendando o Futuro',
+          autor_livro: 'Cassandra Vablatsky',
+        }
+      ]}
+    }
+  }
+  )
 ```
