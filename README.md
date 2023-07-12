@@ -169,3 +169,12 @@ main()
       }
     })
 ```
+#### Atualizando dados de uma tabela:
+"UPDATE SET nome_categoria = 'Aritmância' WHERE id_categoria = 3;"
+```javascript
+      const categoria = await prisma.categoria.update({
+        where: { id_categoria: 3},
+        data: { nome_categoria: 'Aritmância' },
+      })
+      console.log(categoria)
+```
