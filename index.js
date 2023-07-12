@@ -10,8 +10,8 @@ async function main() {
     console.log(allCategorias)
 
     const allLivros = await prisma.livros.findMany()
-    console.log(allLivros)
-  }
+    console.log(allLivros)      
+    }
 
 /* Chama a função "main" criada e a fecha quando finalizada a manipulação com BD. ("process.exit"). */
 main()
