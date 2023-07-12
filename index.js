@@ -5,7 +5,8 @@ const prisma = new PrismaClient()
 /* Cria uma função assíncrona onde alocará as manipulações com o banco de dados. */
 async function main() {
   //Aqui dentro dessa função assíncrona você vai colocar suas querys.
-    /* SELECT * FROM categorias: */
+
+    /* SELECT * FROM categorias/livros: */
     const allCategorias = await prisma.categoria.findMany()
     console.log(allCategorias)
 

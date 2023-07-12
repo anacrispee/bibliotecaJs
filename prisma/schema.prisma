@@ -15,7 +15,7 @@ model categoria {
 
 model livros {
   id_livro     Int       @id @default(autoincrement())
-  nome_livro   String?   @db.VarChar(45)
+  nome_livro   String?   @db.VarChar(60)
   autor_livro  String?   @db.VarChar(45)
   id_categoria Int
   categoria    categoria @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction, map: "id_categoriafk")
