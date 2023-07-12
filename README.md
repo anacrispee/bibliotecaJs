@@ -149,7 +149,6 @@ main()
 Também há outros métodos, como:<br>
 - **findOne:** usado para recuperar um único registro que corresponde a uma determinada condição de pesquisa;<br>
 - **findFirst:** recupera o primeiro registro que corresponde a uma determinada condição de pesquisa;<br>
-- **upsert:** combina o "create" e o "update" em uma única chamada de método. Ele verifica se um registro já existe com base em uma condição de pesquisa e, se existir, realiza uma atualização; caso contrário, cria um novo registro.<br>
 #### Inserindo dados em uma tabela:
 "INSERT INTO livros (nome_livro, autor_livro, id_categoria) VALUES..."
 ```javascript
@@ -202,6 +201,7 @@ Também há outros métodos, como:<br>
       })
       console.log(categoria)
 ```
+- **upsert:** combina o "create" e o "update" em uma única chamada de método. Ele verifica se um registro já existe com base em uma condição de pesquisa e, se existir, realiza uma atualização; caso contrário, cria um novo registro.<br>
 #### Deletando dados de uma tabela:
 "DELETE FROM livros WHERE id_livro = 3;"
 ```javascript
