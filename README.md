@@ -188,7 +188,7 @@ await prisma.livros.delete({
 })
 ```
 ### Queries Aninhadas:
-"INSERT INTO categoria (nome_categoria) VALUES ('Adivinhação');"
+"INSERT INTO categoria (nome_categoria) VALUES ('Adivinhação');"<BR>
 *INSERT INTO livros (nome_livro, autor_livro) VALUES..."
 ```javascript
   await prisma.categoria.create({
