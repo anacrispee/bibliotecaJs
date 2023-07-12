@@ -169,25 +169,7 @@ main()
       }
     })
 ```
-#### Atualizando dados de uma tabela:
-"UPDATE SET nome_categoria = 'Aritmância' WHERE id_categoria = 3;"
-```javascript
-      const categoria = await prisma.categoria.update({
-        where: { id_categoria: 3},
-        data: { nome_categoria: 'Aritmância' },
-      })
-      console.log(categoria)
-```
-#### Deletando dados de uma tabela:
-"DELETE FROM livros WHERE id_livro = 3;"
-```javascript
-await prisma.livros.delete({
-  where: {
-    id_livro: 3,
-  }
-})
-```
-### Queries Aninhadas:
+#### Registros aninhados:
 "INSERT INTO categoria (nome_categoria) VALUES ('Adivinhação');"<BR>
 *INSERT INTO livros (nome_livro, autor_livro) VALUES..."
 ```javascript
@@ -206,4 +188,22 @@ await prisma.livros.delete({
     }
   }
   )
+```
+#### Atualizando dados de uma tabela:
+"UPDATE SET nome_categoria = 'Aritmância' WHERE id_categoria = 3;"
+```javascript
+      const categoria = await prisma.categoria.update({
+        where: { id_categoria: 3},
+        data: { nome_categoria: 'Aritmância' },
+      })
+      console.log(categoria)
+```
+#### Deletando dados de uma tabela:
+"DELETE FROM livros WHERE id_livro = 3;"
+```javascript
+await prisma.livros.delete({
+  where: {
+    id_livro: 3,
+  }
+})
 ```
