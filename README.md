@@ -178,3 +178,12 @@ main()
       })
       console.log(categoria)
 ```
+#### Deletando dados de uma tabela:
+"DELETE FROM livros WHERE id_livro = 3;"
+```javascript
+await prisma.livros.delete({
+  where: {
+    id_livro: 3,
+  }
+})
+```
