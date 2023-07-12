@@ -118,7 +118,7 @@ model livros {
 ```
 
 ### Queries com Prisma:
-Você irá criar um arquivo que pode ter nome "index.js", onde terão todas as suas querys com seu banco de dados. Ele terá a seguinte estrutura:
+Você irá criar um arquivo que pode ter nome "index.js", onde terão todas as suas queries com seu banco de dados. Ele terá a seguinte estrutura:
 ```javascript
 /* Importando o PrismaClient constructor do módulo do Prisma do Node e o instanciando */
 const { PrismaClient } = require('@prisma/client')
