@@ -1,4 +1,4 @@
-# Introdução ao Nodejs
+# Introdução ao Nodejs e Prisma (ORM)
 Introdução ao Nodejs, NPM, Express e Prisma.
 
 ## O que são:
@@ -177,4 +177,13 @@ main()
         data: { nome_categoria: 'Aritmância' },
       })
       console.log(categoria)
+```
+#### Deletando dados de uma tabela:
+"DELETE FROM livros WHERE id_livro = 3;"
+```javascript
+await prisma.livros.delete({
+  where: {
+    id_livro: 3,
+  }
+})
 ```
