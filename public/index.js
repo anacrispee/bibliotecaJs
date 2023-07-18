@@ -4,57 +4,62 @@ async function biblioteca() {
     const responseCategorias = await fetch('/categorias');
     const categorias = await responseCategorias.json();
 
-    const tabela = document.getElementById('tabela-categorias');
-    tabela.innerHTML = '';
+    const tabelaCategorias = document.getElementById('tabela-categorias');
+    tabelaCategorias.innerHTML = '';
 
-    //Table Head:
-    const thead = document.createElement('tr');
-    const thId = document.createElement('th');
-    const thNome = document.createElement('th');
-    const thBtn = document.createElement('th');
-    
-    //Títulos nas table heads:
-    thId.textContent = 'id';
-    thNome.textContent = 'nome da categoria'
-    // Botão na terceira teable head:
+    //Cabeçalho da tabela de categorias de livros:
+    const tRowCategorias = document.createElement('tr');
+    tabelaCategorias.appendChild(tRowCategorias);
+
+    const thIdCategorias = document.createElement('th');
+    thIdCategorias.textContent = 'id';
+    tRowCategorias.appendChild(thIdCategorias);
+
+    const thNomeCategorias = document.createElement('th');
+    thNomeCategorias.textContent = 'nome da categoria';
+    tRowCategorias.appendChild(thNomeCategorias);
+
+    const thBtnCategorias = document.createElement('th');
+    tRowCategorias.appendChild(thBtnCategorias);
+
     const btnNovaCategoria = document.createElement('button');
     btnNovaCategoria.textContent = 'nova categoria';
-    thBtn.appendChild(btnNovaCategoria);
+    thBtnCategorias.appendChild(btnNovaCategoria);
 
-    //Anexando os elementos:
-    thead.appendChild(thId);
-    thead.appendChild(thNome);
-    thead.appendChild(thBtn);
-    tabela.appendChild(thead);
-
-    //Table content:
+    //Conteúdo da tabela de categorias:
     categorias.forEach(categoria => {
 
-        const linha = document.createElement('tr');
-        tabela.appendChild(linha);
+        const linhaCategoria = document.createElement('tr');
+        tabelaCategorias.appendChild(linhaCategoria);
 
-        const colunaId = document.createElement('td');
-        colunaId.textContent = `${categoria.id_categoria}`;
-        linha.appendChild(colunaId);
+        const tdIdCategoria = document.createElement('td');
+        tdIdCategoria.textContent = `${categoria.id_categoria}`;
+        linhaCategoria.appendChild(tdIdCategoria);
 
-        const colunaNome = document.createElement('td');
-        colunaNome.textContent = `${categoria.nome_categoria}`;
-        linha.appendChild(colunaNome);
+        const tdNomeCategoria = document.createElement('td');
+        tdNomeCategoria.textContent = `${categoria.nome_categoria}`;
+        linhaCategoria.appendChild(tdNomeCategoria);
 
-        const colunaBtn = document.createElement('td');
+        const tdBtnCategoria = document.createElement('td');
+        linhaCategoria.appendChild(tdBtnCategoria);
+
         const btnShow = document.createElement('button');
+        btnShow.textContent = 'mostrar';
+        tdBtnCategoria.appendChild(btnShow);
+        btnShow.setAttribute('value', categoria.id_categoria);
+
         const btnEdit = document.createElement('button');
+        btnEdit.textContent = 'editar';
+        tdBtnCategoria.appendChild(btnEdit);
+
         const btnDelete = document.createElement('button');
-        btnShow.textContent = 'show';
-        btnEdit.textContent = 'edit';
-        btnDelete.textContent = 'delete';
-        colunaBtn.appendChild(btnShow);
-        colunaBtn.appendChild(btnEdit);
-        colunaBtn.appendChild(btnDelete);
-        linha.appendChild(colunaBtn);
+        btnDelete.textContent = 'deletar';
+        tdBtnCategoria.appendChild(btnDelete);
 
-        const tableLivro = document.createElement('table');
-        colunaNome.appendChild(tableLivro);
-
-    })
+        //Atribui o valor da id_categoria ao value do btnShow.
+        btnShow.addEventListener('click', function(){
+            const pegarIdCategoria = this.getAttribute('value');
+            console.log(pegarIdCategoria);
+        })
+    });
 }
