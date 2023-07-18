@@ -59,7 +59,77 @@ async function biblioteca() {
         //Atribui o valor da id_categoria ao value do btnShow.
         btnShow.addEventListener('click', function(){
             const pegarIdCategoria = this.getAttribute('value');
+            mostrarLivros(pegarIdCategoria);
             console.log(pegarIdCategoria);
-        })
+
+            async function mostrarLivros(pegarIdCategoria) {
+                const responseLivros = await fetch(`/livros/${pegarIdCategoria}`);
+                const livros = await responseLivros.json();
+        
+                const tableLivros = document.getElementById('table-livros');
+                const body = document.querySelector('body');
+                tableLivros.innerHTML = '';
+
+                //Tabela livros:
+                livros.forEach(livro => {
+                    //Tabela e cabeçalho:
+                    const tabelaLivros = document.createElement('table');
+                    tableLivros.appendChild(tabelaLivros);
+
+                    const tableLivrosCaption = document.createElement('caption');
+                    tableLivrosCaption.textContent = 'livros da categoria: ' + categoria.nome_categoria;
+                    tabelaLivros.appendChild(tableLivrosCaption);
+
+                    const thRowLivros = document.createElement('tr');
+                    tabelaLivros.appendChild(thRowLivros);
+
+                    const thIdLivro = document.createElement('th');
+                    thRowLivros.appendChild(thIdLivro);
+                    thIdLivro.textContent = 'id livro';
+
+                    const thNomeLivro = document.createElement('th');
+                    thRowLivros.appendChild(thNomeLivro);
+                    thNomeLivro.textContent = 'nome livro';
+
+                    const thAutorLivro = document.createElement('th');
+                    thRowLivros.appendChild(thAutorLivro);
+                    thAutorLivro.textContent = 'autor livro';
+
+                    const thBtnNovoLivro = document.createElement('th');
+                    thRowLivros.appendChild(thBtnNovoLivro);
+
+                    const btnNovoLivro = document.createElement('button');
+                    thBtnNovoLivro.appendChild(btnNovoLivro);
+                    btnNovoLivro.textContent = 'novo livro';
+
+                    //Conteúdo da tabela livros:
+                    const linhaLivro = document.createElement('tr');
+                    tabelaLivros.appendChild(linhaLivro);
+            
+                    const tdIdLivro = document.createElement('td');
+                    tdIdLivro.textContent = `${livro.id_livro}`;
+                    linhaLivro.appendChild(tdIdLivro);
+            
+                    const tdNomeLivro = document.createElement('td');
+                    tdNomeLivro.textContent = `${livro.nome_livro}`;
+                    linhaLivro.appendChild(tdNomeLivro);
+            
+                    const tdAutorLivro = document.createElement('td');
+                    tdAutorLivro.textContent = `${livro.autor_livro}`;
+                    linhaLivro.appendChild(tdAutorLivro);
+
+                    const tdBtnsLivro = document.createElement('td');
+                    linhaLivro.appendChild(tdBtnsLivro);
+
+                    const btnEditLivro = document.createElement('button');
+                    tdBtnsLivro.appendChild(btnEditLivro);
+                    btnEditLivro.textContent = 'editar';
+
+                    const btnExcluiLivro = document.createElement('button');
+                    tdBtnsLivro.appendChild(btnExcluiLivro);
+                    btnExcluiLivro.textContent = 'editar';
+                });
+            };
+        });
     });
 }
