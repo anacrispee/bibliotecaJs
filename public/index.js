@@ -22,9 +22,39 @@ async function biblioteca() {
     const thBtnCategorias = document.createElement('th');
     tRowCategorias.appendChild(thBtnCategorias);
 
+    //Botão "nova categoria":
     const btnNovaCategoria = document.createElement('button');
     btnNovaCategoria.textContent = 'nova categoria';
     thBtnCategorias.appendChild(btnNovaCategoria);
+
+    //Funcionalidade do botão "nova categoria"
+    btnNovaCategoria.addEventListener('click', function (){
+        const modalNovaCategoria = document.getElementById('nova-categoria');
+        if (modalNovaCategoria.style.display === 'none') {
+            modalNovaCategoria.style.display = 'block';
+        }else {
+            modalNovaCategoria.style.display = 'none';
+        } 
+    })
+
+    const btnInserirNovaCat = document.getElementById('btnInserirNovaCat');
+
+    btnInserirNovaCat.addEventListener('click', async function (){
+        const inputNovaCategoria = document.getElementById('inputNovaCategoria');
+        const valorInputNovaCat = inputNovaCategoria.value;
+
+        if (valorInputNovaCat === '') {
+            alert('Insira o nome do livro!');
+        }else{
+            const responseNovaCategoria = await fetch('/categorias', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({postNomeCategoria: valorInputNovaCat}),
+            })}
+    })
+
 
     //Conteúdo da tabela de categorias:
     categorias.forEach(categoria => {
@@ -52,6 +82,37 @@ async function biblioteca() {
         btnEdit.textContent = 'editar';
         tdBtnCategoria.appendChild(btnEdit);
 
+        //Funcionalidade botão e modal de edição de categorias:
+        btnEdit.addEventListener('click', function(){
+            const modalEditaCategoria = document.getElementById('editar-categoria');
+            if (modalEditaCategoria.style.display === 'none') {
+                modalEditaCategoria.style.display = 'block';
+            }else{
+                modalEditaCategoria.style.display = 'none';
+            }
+
+            const inputEditaCategoria = document.getElementById('inputEditaCategoria');
+            inputEditaCategoria.value = categoria.nome_categoria;
+
+            const putIdCategoria = categoria.id_categoria;
+
+            const btnEditaCategoria = document.getElementById('btnEditaCategoria');
+            btnEditaCategoria.addEventListener('click', async function(){
+
+            if (inputEditaCategoria.value === '')  {
+                alert('Insira o nome da categoria!');
+            }else{
+                const responseEditaCategoria = await fetch(`/categorias/${putIdCategoria}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        putNomeCategoria: inputEditaCategoria.value}),
+                })}
+            })
+        })
+
         const btnDelete = document.createElement('button');
         btnDelete.textContent = 'deletar';
         tdBtnCategoria.appendChild(btnDelete);
@@ -60,7 +121,6 @@ async function biblioteca() {
         btnShow.addEventListener('click', function(){
             const pegarIdCategoria = this.getAttribute('value');
             mostrarLivros(pegarIdCategoria);
-            console.log(pegarIdCategoria);
 
             async function mostrarLivros(pegarIdCategoria) {
                 const responseLivros = await fetch(`/livros/${pegarIdCategoria}`);
@@ -129,6 +189,14 @@ async function biblioteca() {
                     tdBtnsLivro.appendChild(btnExcluiLivro);
                     btnExcluiLivro.textContent = 'editar';
                 });
+
+                if (tableLivros.style.display === 'table') {
+                    tableLivros.style.display = 'none';
+                    btnShow.textContent = 'mostrar';
+                }else {
+                    tableLivros.style.display = 'table';
+                    btnShow.textContent = 'esconder';
+                }
             };
         });
     });
