@@ -19,45 +19,45 @@ router.get('/:id_categoria', async (req, res) => {
     res.json(livros);
 })
 
-
-router.post('/', async (req, res) => {
+router.post('/:postIdCategoria', async (req, res) => {
     const {postNomeLivro} = req.body;
     const {postAutorLivro} = req.body;
-    const {postLivroIdCategoria} = req.params;
+    const {postIdCategoria} = req.params;
 
     const novoLivro = await prisma.livros.create({
         data: {
             nome_livro: postNomeLivro,
             autor_livro: postAutorLivro,
-            id_categoria: postLivroIdCategoria,
+            id_categoria: parseInt(postIdCategoria),
         },
     });
 });
 
-router.put('/', async (req, res) => {
+router.put('/:putLivroIdCategoria/:putIdLivro', async (req, res) => {
     const {putNomeLivro} = req.body;
     const {putAutorLivro} = req.body;
     const {putLivroIdCategoria} = req.params;
+    const {putIdLivro} = req.params;
 
     const atualizaLivro = await prisma.livros.update({
         where: {
-            id_categoria: putLivroIdCategoria,
+            id_livro: parseInt(putIdLivro),
         },
         data: {
             nome_livro: putNomeLivro,
             autor_livro: putAutorLivro,
         },
-    })
-})
+    });
+});
 
-router.delete('/', async (req, res) => {
+router.delete('/:deleteIdLivro', async (req, res) => {
     const {deleteIdLivro} = req.params;
 
     const deleteLivro = await prisma.livros.delete({
         where: {
-            id_livro: deleteIdLivro,
+            id_livro: Number(deleteIdLivro),
         },
-    })
+    });
 })
 
 module.exports = router;

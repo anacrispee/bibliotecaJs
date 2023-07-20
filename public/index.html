@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
     <title>BibliotecaJS</title>
 </head>
+
 <body onload="biblioteca()">
+
+    <!-- Títulos -->
     <h1>BibliotecaJS</h1>
     <h2>Categorias</h2>
+
+    <!-- Botão nova categoria -->
+    <div id="divBtnNovaCategoria">
+        <button id="btnNovaCategoria" onclick="novaCategoria()">nova categoria</button>
+    </div>
+
+    <!-- Tabelas categorias e livros -->
     <table id="tabela-categorias">
     </table>
+
     <table id="table-livros">
     </table>
-    <div id="nova-categoria"  style="display:none">
+
+    <!-- Modal novo categoria: -->
+    <div id="nova-categoria" style="display:none">
         <h3>Nova Categoria</h3>
         <form id="formNovaCategoria">
             <label for="nomeCategoria">Nome Categoria</label>
-            <input id="inputNovaCategoria" type="text" name="nomeCategoria" placeholder="Insira aqui o nome da nova categoria">
+            <input id="inputNovaCategoria" type="text" name="nomeCategoria"
+                placeholder="Insira aqui o nome da nova categoria">
             <button id="btnInserirNovaCat" type="submit" value="submit">Inserir nova categoria</button>
-            <button id="btnCancelar">Cancelar</button>
+            <button>Cancelar</button>
         </form>
     </div>
+
+    <!-- Modal editar categoria: -->
     <div id="editar-categoria" style="display: none;">
+        <h3>Editar categoria</h3>
         <form id="formEditarCategoria">
             <label for="inputEditaCategoria">Nome Categoria</label>
             <input id="inputEditaCategoria" type="text" name="nomeCategoria">
             <button id="btnEditaCategoria" type="submit" value="submit">Alterar categoria</button>
-            <button id="edit-cancelar">Cancelar</button>
+            <button>Cancelar</button>
         </form>
     </div>
-    <div></div>
+
+    <!-- Modal novo livro: -->
+    <div id="novo-livro" style="display:none">
+        <h3>Novo livro:</h3>
+        <form id="formNovoLivro">
+            <label for="nomeLivro">Nome livro</label>
+            <input id="inputNovoLivro" type="text" name="nomeLivro" placeholder="Insira aqui o nome do novo livro">
+            <label for="autorLivro">Nome do autor</label>
+            <input id="inputAutorLivro" type="text" name="autorLivro" placeholder="Insira aqui o nome do autor">
+            <button id="btnInserirNovoLivro" type="submit" value="submit">Inserir novo livro</button>
+            <button>Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Modal editar livro -->
+    <div id="editar-livro" style="display:none">
+        <h3>Editar livro:</h3>
+        <form id="formEditaLivro">
+            <label for="nomeLivro">Nome livro</label>
+            <input id="inputEditaLivro" type="text" name="nomeLivro">
+            <label for="autorLivro">Nome do autor</label>
+            <input id="inputEditaAutorLivro" type="text" name="autorLivro">
+            <button id="btnEditaLivro" type="submit" value="submit">Alterar livro</button>
+            <button>Cancelar</button>
+        </form>
+    </div>
+
 </body>
 </html>
