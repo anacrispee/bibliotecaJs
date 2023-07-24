@@ -9,7 +9,7 @@ app.use(express.json());
 //Rotas
 app.use('/livros', require('./routes/livros'));
 app.use('/categorias', require('./routes/categorias'));
-app.use(express.static('public'));
+app.use(express.static('./view'));
 
 app.listen(port, () => {
     console.log('Servidor rodando na porta: ', port);

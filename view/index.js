@@ -157,9 +157,9 @@ async function biblioteca() {
                         const confirma = confirm('Tem certeza que quer excluir esse livro?');
                         if (confirma) {
                             const responseExcluiLivro = await fetch(`/livros/${deleteIdLivro}`, {
-                                method: 'DELETE'
+                                method: 'DELETE',
                             });
-                        }
+                        };
                     })
                 });
 
@@ -224,7 +224,7 @@ async function biblioteca() {
             const inputEditaCategoria = document.getElementById('inputEditaCategoria');
             inputEditaCategoria.value = categoria.nome_categoria;
 
-            const putIdCategoria = livro.id_categoria;
+            const putIdCategoria = categoria.id_categoria;
 
             const btnEditaCategoria = document.getElementById('btnEditaCategoria');
             btnEditaCategoria.addEventListener('click', async function () {
@@ -243,7 +243,7 @@ async function biblioteca() {
                     })
                 }
             })
-        })
+        });
 
         //Funcionalidade do botão de exclusão de categoria:
         const btnDelete = document.createElement('button');
