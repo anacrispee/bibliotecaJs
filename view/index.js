@@ -115,11 +115,17 @@ async function biblioteca() {
                     //Funcionalidade do botão "Edita livro":
                     btnEditLivro.addEventListener('click', function(){
                         const modalEditaLivro = document.getElementById('editar-livro');
+                        const editaLivCancelaBtn = document.getElementById('editaLivCancelaBtn');
+
                         if (modalEditaLivro.style.display === 'none') {
                             modalEditaLivro.style.display = 'block';
                         } else {
                             modalEditaLivro.style.display = 'none';
                         }
+
+                        editaLivCancelaBtn.addEventListener('click', function() {
+                            modalEditaLivro.style.display = 'none';
+                        })
 
                         const inputEditaLivro = document.getElementById('inputEditaLivro');
                         const inputEditaAutorLivro = document.getElementById('inputEditaAutorLivro');
@@ -175,11 +181,17 @@ async function biblioteca() {
                  //Funcionalidade botão "novo livro".
                  btnNovoLivro.addEventListener('click',async function(){
                     const modalNovoLivro = document.getElementById('novo-livro');
+                    const novoLivCancelaBtn = document.getElementById('novoLivCancelaBtn');
+
                     if (modalNovoLivro.style.display === 'none') {
                         modalNovoLivro.style.display = 'block';
                     } else {
                         modalNovoLivro.style.display = 'none';
                     }
+
+                    novoLivCancelaBtn.addEventListener('click', function() {
+                        modalNovoLivro.style.display = 'none';
+                    })
                 
                     const btnInserirNovoLivro = document.getElementById('btnInserirNovoLivro');
                 
@@ -215,11 +227,17 @@ async function biblioteca() {
         //Funcionalidade botão e modal de edição de categorias:
         btnEdit.addEventListener('click', function () {
             const modalEditaCategoria = document.getElementById('editar-categoria');
+            const editaCatCancelaBtn = document.getElementById('editaCatCancelaBtn');
+
             if (modalEditaCategoria.style.display === 'none') {
                 modalEditaCategoria.style.display = 'block';
             } else {
                 modalEditaCategoria.style.display = 'none';
             }
+
+            editaCatCancelaBtn.addEventListener('click', function() {
+                modalEditaCategoria.style.display = 'none';
+            })
 
             const inputEditaCategoria = document.getElementById('inputEditaCategoria');
             inputEditaCategoria.value = categoria.nome_categoria;
@@ -252,12 +270,13 @@ async function biblioteca() {
 
         const deleteIdCategoria = categoria.id_categoria;
 
-        btnDelete.addEventListener('click', async function () {
+        btnDelete.addEventListener('click', async function() {
             const confirma = confirm('Tem certeza que quer excluir essa categoria? Todos os livros dentro dela também serão excluídos!');
             if (confirma) {
                 const responseExcluiCategoria = await fetch(`/categorias/${deleteIdCategoria}`, {
                     method: 'DELETE'
                 });
+                alert('Categoria excluída com sucesso!');
             }
         });
     });
@@ -266,11 +285,17 @@ async function biblioteca() {
 //Botão de nova categoria:
 function novaCategoria() {
     const modalNovaCategoria = document.getElementById('nova-categoria');
+    const novaCatCancelaBtn = document.getElementById('novaCatCancelaBtn');
+
     if (modalNovaCategoria.style.display === 'none') {
         modalNovaCategoria.style.display = 'block';
     } else {
         modalNovaCategoria.style.display = 'none';
     }
+
+    novaCatCancelaBtn.addEventListener('click', function() {
+        modalNovaCategoria.style.display = 'none';
+    })
 
     const btnInserirNovaCat = document.getElementById('btnInserirNovaCat');
 

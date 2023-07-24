@@ -34,7 +34,7 @@
             <input id="inputNovaCategoria" type="text" name="nomeCategoria"
                 placeholder="Insira aqui o nome da nova categoria">
             <button id="btnInserirNovaCat" type="submit" value="submit">Inserir nova categoria</button>
-            <button>Cancelar</button>
+            <button id="novaCatCancelaBtn">Cancelar</button>
         </form>
     </div>
 
@@ -45,8 +45,16 @@
             <label for="inputEditaCategoria">Nome Categoria</label>
             <input id="inputEditaCategoria" type="text" name="nomeCategoria">
             <button id="btnEditaCategoria" type="submit" value="submit">Alterar categoria</button>
-            <button>Cancelar</button>
+            <button id="editaCatCancelaBtn">Cancelar</button>
         </form>
+    </div>
+
+    <!-- Modal confirmação de exclusão de categoria -->
+    <div id="excluir-categoria" style="display:none;">
+        <h3>Excluir categoria</h3>
+        <p>Tem certeza que deseja excluir essa categoria?</p>
+        <button id="confirmaExcluiCatBtn">Sim, excluir categoria</button>
+        <button id="excluiCatCancelaBtn">Cancelar</button>
     </div>
 
     <!-- Modal novo livro: -->
@@ -58,7 +66,7 @@
             <label for="autorLivro">Nome do autor</label>
             <input id="inputAutorLivro" type="text" name="autorLivro" placeholder="Insira aqui o nome do autor">
             <button id="btnInserirNovoLivro" type="submit" value="submit">Inserir novo livro</button>
-            <button>Cancelar</button>
+            <button id="novoLivCancelaBtn">Cancelar</button>
         </form>
     </div>
 
@@ -71,9 +79,16 @@
             <label for="autorLivro">Nome do autor</label>
             <input id="inputEditaAutorLivro" type="text" name="autorLivro">
             <button id="btnEditaLivro" type="submit" value="submit">Alterar livro</button>
-            <button>Cancelar</button>
+            <button id="editaLivCancelaBtn">Cancelar</button>
         </form>
     </div>
 
+    <!-- Modal confirmação de exclusão de livro -->
+    <div id="excluir-categoria" style="display:none;">
+        <h3>Excluir categoria</h3>
+        <p>Tem certeza que deseja excluir essa categoria?</p>
+        <button id="confirmaExcluiCatBtn">Sim, excluir categoria</button>
+        <button id="excluiLivCancelaBtn">Cancelar</button>
+    </div>
 </body>
 </html>
