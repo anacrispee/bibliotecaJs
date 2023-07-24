@@ -32,21 +32,20 @@ router.put('/:putIdCategoria', async (req, res) => {
 router.delete('/:deleteIdCategoria', async (req, res) => {
     const {deleteIdCategoria} = req.params;
 
-    const consultaLivros = await prisma.livros.findMany({
-        where: {
-            id_categoria: deleteIdCategoria,
-        }
-    })
-
-    if (consultaLivros == '') {
-        const deleteCategoria = await prisma.categoria.delete({
+//Transaction para deletar os livros que tem dentro da categoria:
+    await prisma.$transaction([
+        prisma.livros.deleteMany({
             where: {
                 id_categoria: Number(deleteIdCategoria),
-            }
+            },
+        }),
+        prisma.categoria.delete({
+            where: {
+                id_categoria: Number(deleteIdCategoria),
+            },
         })
-    } else {
-        
-    }
+    ])
+
 })
 
 module.exports = router;

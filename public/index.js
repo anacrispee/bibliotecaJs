@@ -253,7 +253,7 @@ async function biblioteca() {
         const deleteIdCategoria = categoria.id_categoria;
 
         btnDelete.addEventListener('click', async function () {
-            const confirma = confirm('Tem certeza que quer excluir essa categoria?');
+            const confirma = confirm('Tem certeza que quer excluir essa categoria? Todos os livros dentro dela também serão excluídos!');
             if (confirma) {
                 const responseExcluiCategoria = await fetch(`/categorias/${deleteIdCategoria}`, {
                     method: 'DELETE'

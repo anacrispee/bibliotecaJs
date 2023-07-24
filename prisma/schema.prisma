@@ -18,7 +18,7 @@ model livros {
   nome_livro   String?   @db.VarChar(60)
   autor_livro  String?   @db.VarChar(45)
   id_categoria Int
-  categoria    categoria @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction, map: "id_categoriafk")
+  categoria    categoria @relation(fields: [id_categoria], references: [id_categoria], onDelete: Cascade, onUpdate: NoAction, map: "id_categoriafk")
 
   @@index([id_categoria], map: "id_categoriafk")
 }
