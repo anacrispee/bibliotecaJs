@@ -165,6 +165,8 @@ async function biblioteca() {
                             const responseExcluiLivro = await fetch(`/livros/${deleteIdLivro}`, {
                                 method: 'DELETE',
                             });
+                            alert("Livro excluído com sucesso!");
+                            window.location.reload();
                         };
                     })
                 });
@@ -202,7 +204,7 @@ async function biblioteca() {
                         const novoLivroIdCat = pegarIdCategoria;
 
                         if ((inputNovoLivro.value === '') || (inputAutorLivro.value === '')) {
-                            alert('Insira o nome do livro!');
+                            alert('Preencha todos os campos!');
                         } else {                            
                             const responseNovoLivro = await fetch(`/livros/${pegarIdCategoria}`, {
                                 method: 'POST',
@@ -276,7 +278,8 @@ async function biblioteca() {
                 const responseExcluiCategoria = await fetch(`/categorias/${deleteIdCategoria}`, {
                     method: 'DELETE'
                 });
-                alert('Categoria excluída com sucesso!');
+                alert("Categoria excluída com sucesso!");
+                window.location.reload();
             }
         });
     });
@@ -304,7 +307,7 @@ function novaCategoria() {
         const valorInputNovaCat = inputNovaCategoria.value;
 
         if (valorInputNovaCat === '') {
-            alert('Insira o nome do livro!');
+            alert('Insira o nome da categoria!');
         } else {
             const responseNovaCategoria = await fetch('/categorias', {
                 method: 'POST',
