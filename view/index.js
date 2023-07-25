@@ -5,19 +5,7 @@ async function biblioteca() {
     const categorias = await responseCategorias.json();
 
     const tabelaCategorias = document.getElementById('tabela-categorias');
-    tabelaCategorias.innerHTML = '';
-
-    //Cabeçalho da tabela de categorias de livros:
-    const tRowCategorias = document.createElement('tr');
-    tabelaCategorias.appendChild(tRowCategorias);
-
-    const thIdCategorias = document.createElement('th');
-    thIdCategorias.textContent = 'id';
-    tRowCategorias.appendChild(thIdCategorias);
-
-    const thNomeCategorias = document.createElement('th');
-    thNomeCategorias.textContent = 'nome da categoria';
-    tRowCategorias.appendChild(thNomeCategorias);
+    tabelaCategorias.innerHTML += '';
 
     //Conteúdo da tabela de categorias:
     categorias.forEach(categoria => {
