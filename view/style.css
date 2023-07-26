@@ -1,7 +1,7 @@
-.modalNovaCategoria, .modalEditaCategoria, .modalNovoLivro, .modalEditaLivro {
+.modalNovaCategoria, .modalEditaCategoria, .modalNovoLivro, .modalEditaLivro, .tabelaLivros {
     display: none;
 }
 
-.modalNovaCategoria.show, .modalEditaCategoria.show, .modalNovoLivro.show, .modalEditaLivro.show {
+.modalNovaCategoria.show, .modalEditaCategoria.show, .modalNovoLivro.show, .modalEditaLivro.show, .tabelaLivros.show {
     display: block;
 }
