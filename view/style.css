@@ -1,0 +1,7 @@
+.modalNovaCategoria, .modalEditaCategoria, .modalNovoLivro, .modalEditaLivro {
+    display: none;
+}
+
+.modalNovaCategoria.show, .modalEditaCategoria.show, .modalNovoLivro.show, .modalEditaLivro.show {
+    display: block;
+}

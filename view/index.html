@@ -1,82 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>BibliotecaJS</title>
 </head>
+<body">
+    <header>
+        <!-- Títulos -->
+        <h1>BibliotecaJS</h1>
+        <h2>Categorias</h2>
+    </header>
+    <main>
+        <!-- Botão nova categoria -->
+        <section class="sectionNovaCategoria">
+            <button id="btnNovaCategoria">nova categoria</button>
+        </section>
 
-<body onload="biblioteca()">
+        <section class="tabelas">
+            <article class="artTabelaCategorias">
+                <!-- Tabelas de categorias -->
+                <table id="tabelaCategorias">
+                    <tr>
+                        <th>id</th>
+                        <th>nome</th>
+                    </tr>
+                </table>
+            </article>
 
-    <!-- Títulos -->
-    <h1>BibliotecaJS</h1>
-    <h2>Categorias</h2>
+            <article class="artTabelaLivros">
+                <!-- Tabela de livros -->
+                <table id="tabelaLivros" style="display: none;">
+                    <caption id="captionTabelaLivros"></caption>
+                    <tr>
+                        <th>id</th>
+                        <th>título</th>
+                        <th>autor</th>
+                        <th>
+                            <button id="btnNovoLivro"">novo livro</button>
+                        </th>
+                    </tr>
+                </table>
+            </article>
+        </section>
 
-    <!-- Botão nova categoria -->
-    <div id="divBtnNovaCategoria">
-        <button id="btnNovaCategoria" onclick="novaCategoria()">nova categoria</button>
-    </div>
+        <section class="modais">
+            <!-- Modal de novo categoria -->
+            <div id="modalNovaCategoria" class="modalNovaCategoria">
+                <h3>Nova Categoria</h3>
+                <form id="formNovaCategoria">
+                    <label for="inputNomeCategoria">Nome Categoria</label>
+                    <input id="inputNomeCategoria" type="text" name="inputNomeCategoria"
+                        placeholder="Insira aqui o nome da nova categoria">
+                    <button id="btnInserirNovaCat" type="submit" value="submit">Inserir nova categoria</button>
+                    <button id="btnCancelaNovaCat">Cancelar</button>
+                </form>
+            </div>
 
-    <!-- Tabelas categorias e livros -->
-    <table id="tabela-categorias">
-        <tr>
-            <th>id livro</th>
-            <th>nome livro</th>
-        </tr>
-    </table>
+            <!-- Modal editar categoria: -->
+            <div id="modalEditaCategoria" class="modalEditaCategoria">
+                <h3>Editar categoria</h3>
+                <form id="formEditarCategoria">
+                    <label for="inputEditaCategoria">Nome Categoria</label>
+                    <input id="inputEditaCategoria" type="text" name="inputEditaCategoria">
+                    <button id="btnEditaCategoria" type="submit" value="submit">Alterar categoria</button>
+                    <button id="btnCancelaEditaCat">Cancelar</button>
+                </form>
+            </div>
 
-    <table id="table-livros">
-    </table>
+            <!-- Modal novo livro: -->
+            <div id="modalNovoLivro" class="modalNovoLivro">
+                <h3>Novo livro:</h3>
+                <form id="formNovoLivro">
+   x                 <label for="inputNovoLivro">Nome livro</label>
+                    <input id="inputNovoLivro" type="text" name="inputNovoLivro" placeholder="Insira aqui o nome do novo livro">
+                    <label for="inputAutorLivro">Nome do autor</label>
+                    <input id="inputAutorLivro" type="text" name="inputAutorLivro" placeholder="Insira aqui o nome do autor">
+                    <button id="btnInserirNovoLivro" type="submit" value="submit">Inserir novo livro</button>
+                    <button id="btnCancelaNovoLivro">Cancelar</button>
+                </form>
+            </div>
 
-    <!-- Modal novo categoria: -->
-    <div id="nova-categoria" style="display:none">
-        <h3>Nova Categoria</h3>
-        <form id="formNovaCategoria">
-            <label for="nomeCategoria">Nome Categoria</label>
-            <input id="inputNovaCategoria" type="text" name="nomeCategoria"
-                placeholder="Insira aqui o nome da nova categoria">
-            <button id="btnInserirNovaCat" type="submit" value="submit">Inserir nova categoria</button>
-            <button id="novaCatCancelaBtn">Cancelar</button>
-        </form>
-    </div>
-
-    <!-- Modal editar categoria: -->
-    <div id="editar-categoria" style="display: none;">
-        <h3>Editar categoria</h3>
-        <form id="formEditarCategoria">
-            <label for="inputEditaCategoria">Nome Categoria</label>
-            <input id="inputEditaCategoria" type="text" name="nomeCategoria">
-            <button id="btnEditaCategoria" type="submit" value="submit">Alterar categoria</button>
-            <button id="editaCatCancelaBtn">Cancelar</button>
-        </form>
-    </div>
-
-    <!-- Modal novo livro: -->
-    <div id="novo-livro" style="display:none">
-        <h3>Novo livro:</h3>
-        <form id="formNovoLivro">
-            <label for="nomeLivro">Nome livro</label>
-            <input id="inputNovoLivro" type="text" name="nomeLivro" placeholder="Insira aqui o nome do novo livro">
-            <label for="autorLivro">Nome do autor</label>
-            <input id="inputAutorLivro" type="text" name="autorLivro" placeholder="Insira aqui o nome do autor">
-            <button id="btnInserirNovoLivro" type="submit" value="submit">Inserir novo livro</button>
-            <button id="novoLivCancelaBtn">Cancelar</button>
-        </form>
-    </div>
-
-    <!-- Modal editar livro -->
-    <div id="editar-livro" style="display:none">
-        <h3>Editar livro:</h3>
-        <form id="formEditaLivro">
-            <label for="nomeLivro">Nome livro</label>
-            <input id="inputEditaLivro" type="text" name="nomeLivro">
-            <label for="autorLivro">Nome do autor</label>
-            <input id="inputEditaAutorLivro" type="text" name="autorLivro">
-            <button id="btnEditaLivro" type="submit" value="submit">Alterar livro</button>
-            <button id="editaLivCancelaBtn">Cancelar</button>
-        </form>
-    </div>
+            <!-- Modal editar livro -->
+            <div id="modalEditaLivro" class="modalEditaLivro">
+                <h3>Editar livro:</h3>
+                <form id="formEditaLivro">
+                    <label for="inputEditaNomeLivro">Título do livro</label>
+                    <input id="inputEditaLivro" type="text" name="inputEditaNomeLivro">
+                    <label for="inputEditaAutorLivro">Nome do autor</label>
+                    <input id="inputEditaAutorLivro" type="text" name="inputEditaAutorLivro">
+                    <button id="btnEditaLivro" type="submit" value="submit">Alterar livro</button>
+                    <button id="btnCancelaEditaLivro">Cancelar</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
