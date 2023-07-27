@@ -7,8 +7,8 @@ const prisma = new PrismaClient();
 app.use(express.json());
 
 //Rotas
-app.use('/livros', require('./routes/livros'));
-app.use('/categorias', require('./routes/categorias'));
+app.use('/livros', require('./routes/livrosRouter'));
+app.use('/categorias', require('./routes/categoriasRouter'));
 app.use(express.static('./view'));
 
 app.listen(port, () => {
