@@ -131,8 +131,8 @@ async function deletarCategoria(idCategoria) {
             const responseDeleteCategoria = await fetch(`/categorias/${idCategoria}`, {
                 method: 'DELETE',
             });
-            window.location.reload();
             alert('Categoria e livros relacionados excluídos com sucesso!');
+            window.location.reload();
         }catch(error){
             console.log('Erro ao excluir categoria!', error);
         };
@@ -144,11 +144,13 @@ async function listarLivros(idCategoria) {
     try{
         const tabelaLivros = document.getElementById('tabelaLivros');
         const btnNovoLivro = document.getElementById('btnNovoLivro');
+
         btnNovoLivro.addEventListener('click', () => {
             abrirModalCriarLivro(idCategoria);
-        })
+        });
+
         tabelaLivros.classList.toggle('show');
-    //    tabelaLivros.innerHTML = '';
+
         const responseGetLivros = await fetch(`/livros/${idCategoria}`);
         const livros = await responseGetLivros.json();
 
@@ -171,26 +173,109 @@ async function listarLivros(idCategoria) {
             tdBtnsLivro.appendChild(btnExcluiLivro);
 
             btnEditarLivro.addEventListener('click', () => {
-                editarLivro(livro.id_categoria, livro.id_livro);
+                abrirModalEditarLivro(livro.id_categoria, livro.id_livro, livro.nome_livro, livro.autor_livro);
             });
 
             btnExcluiLivro.addEventListener('click', () => {
-                excluirLivro(livro.id_categoria, livro.id_livro);
+                excluirLivro(livro.id_livro);
             })
-            
         });
     }catch(error) {
-        console.log('Erro ao listar livros da categoria especificada!');
+        console.log('Erro ao listar livros da categoria especificada!', error);
     };
 };
 
 /* Abertura de modal de criação de novo livro */
 function abrirModalCriarLivro(idCategoria) {
     const modalNovoLivro = document.getElementById('modalNovoLivro');
-    const inputNovoLivro = document.getElementById('inputNovoLviro');
+    const inputNovoLivro = document.getElementById('inputNovoLivro');
     const inputAutorLivro = document.getElementById('inputAutorLivro');
+    const btnInserirNovoLivro = document.getElementById('btnInserirNovoLivro');
+
     modalNovoLivro.classList.toggle('show');
-}
+
+    btnInserirNovoLivro.addEventListener('click', function() {
+        if ((inputNovoLivro.value === '') && (inputAutorLivro.value === '')) {
+            alert('Campos vazios: preencha os campos corretamente!');
+        }else{
+            const valueNovoLivro = inputNovoLivro.value;
+            const valueAutorLivro = inputAutorLivro.value;
+            criarLivro(idCategoria, valueNovoLivro, valueAutorLivro);
+        };
+    })
+};
+
+/* Criação de novo livro */
+async function criarLivro(idCategoria, valueNovoLivro, valueAutorLivro) {
+    try{
+        const responsePostLivro = await fetch(`/livros/${idCategoria}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                postNomeLivro: valueNovoLivro,
+                postAutorLivro: valueAutorLivro,
+            })
+        });
+    }catch(error){
+        console.log('Erro ao criar livro!');
+    };
+};
+
+/* Abertura do modal de edição de livro */
+function abrirModalEditarLivro(idCategoriaLivro, idLivro, nomeLivro, autorLivro) {
+    const modalEditaLivro = document.getElementById('modalEditaLivro');
+    const inputEditaLivro = document.getElementById('inputEditaLivro');
+    const inputEditaAutorLivro = document.getElementById('inputEditaAutorLivro');
+    const btnEditaLivro = document.getElementById('btnEditaLivro');
+
+    modalEditaLivro.classList.toggle('show');
+    inputEditaLivro.value = nomeLivro;
+    inputEditaAutorLivro.value = autorLivro;
+
+    btnEditaLivro.addEventListener('click', function(){
+        editarLivro(idCategoriaLivro, idLivro);
+    });
+};
+
+/* Edição de livro */
+async function editarLivro(idCategoriaLivro, idLivro) {
+    if (inputEditaLivro.value === '' || inputEditaAutorLivro.value === '') {
+        alert('Campos vazios! Preencha os campos solicitados!');
+    }else{
+        try{
+            const responseEditaLivro = await fetch(`/livros/${idCategoriaLivro}/${idLivro}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    putNomeLivro: inputEditaLivro.value,
+                    putAutorLivro: inputEditaAutorLivro.value,
+                }),
+            });
+        }catch(error){
+            console.log('Erro ao editar livro!', error);
+        };
+    };
+};
+
+/* Exclusão de livro: */
+async function excluirLivro(idLivro) {
+    const confirma = confirm('Tem certeza que deseja excluir este livro?');
+    if (confirma) {
+        try{
+            const responseExcluiLivro = await fetch(`/livros/${idLivro}`, {
+                method: 'DELETE',
+            });
+            alert('Livro excluído com sucesso!');
+            window.location.reload();
+        }catch(error){
+            console.log('Erro ao excluir livro', error);
+        };
+    };
+;}
 
 /* Carregamento do conteúdo da página */
 document.addEventListener('DOMContentLoaded', function (){
