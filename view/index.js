@@ -34,7 +34,7 @@ async function listarCategorias(){
             tdBtnsCategoria.appendChild(btnDeletarCategoria);
 
             btnMostrarLivros.addEventListener('click', () => {
-                listarLivros(categoria.id_categoria);
+                listarLivros(categoria.id_categoria, categoria.nome_categoria);
             });
 
             btnEditarCategoria.addEventListener('click', () => {
@@ -58,6 +58,9 @@ function abrirModalCriarCat() {
     const btnCancelarNovaCat = document.getElementById('btnCancelaNovaCat');
 
     modalNovaCategoria.classList.toggle('show');
+    btnCancelarNovaCat.addEventListener('click', function (){
+        modalNovaCategoria.classList.remove('show');
+    });
 
     btnInserirNovaCat.addEventListener('click', function() {
         const nomeCategoria = inputNomeCategoria.value;
@@ -92,9 +95,13 @@ function abrirModalEditarCat(idCategoria, nomeCategoria){
     const modalEditaCategoria = document.getElementById('modalEditaCategoria');
     const inputEditaCategoria = document.getElementById('inputEditaCategoria');
     const btnEditaCategoria = document.getElementById('btnEditaCategoria');
-    const btnCancelaEditaCategoria = document.getElementById('btnCancelaEditaCategoria');
+    const btnCancelaEditaCat = document.getElementById('btnCancelaEditaCat');
 
     modalEditaCategoria.classList.toggle('show');
+    btnCancelaEditaCat.addEventListener('click', function (){
+        modalEditaCategoria.classList.remove('show');
+    });
+
     inputEditaCategoria.value = nomeCategoria;
     btnEditaCategoria.addEventListener('click', function(){
         editaCategoria(idCategoria);
@@ -140,19 +147,36 @@ async function deletarCategoria(idCategoria) {
 };
 
 /* Listagem de livros de categoria específica */
-async function listarLivros(idCategoria) {
+async function listarLivros(idCategoria, nomeCategoria) {
     try{
         const tabelaLivros = document.getElementById('tabelaLivros');
-        const btnNovoLivro = document.getElementById('btnNovoLivro');
-
-        btnNovoLivro.addEventListener('click', () => {
-            abrirModalCriarLivro(idCategoria);
-        });
 
         tabelaLivros.classList.toggle('show');
+        tabelaLivros.innerHTML = '';
 
         const responseGetLivros = await fetch(`/livros/${idCategoria}`);
         const livros = await responseGetLivros.json();
+
+                /* Caption especificando a tabela aberta */
+                const captionTabelaLivros = document.createElement('caption');
+                captionTabelaLivros.textContent = 'livros da categoria: ' + nomeCategoria;
+                tabelaLivros.appendChild(captionTabelaLivros);
+
+                /* Cabeçalho da tabela livros */
+                const linhaHeader = document.createElement('tr');
+                tabelaLivros.appendChild(linhaHeader);
+                linhaHeader.appendChild(criarTd('id'));
+                linhaHeader.appendChild(criarTd('título'));
+                linhaHeader.appendChild(criarTd('autor'));
+
+                const tdBtnNovoLivro = document.createElement('td');
+                const btnNovoLivro = document.createElement('button');
+                btnNovoLivro.addEventListener('click', function(){
+                    abrirModalCriarLivro(idCategoria);
+                })
+                btnNovoLivro.textContent = 'novo livro';
+                linhaHeader.appendChild(tdBtnNovoLivro);
+                tdBtnNovoLivro.appendChild(btnNovoLivro);
 
         livros.forEach(livro => {
             const linhaLivro = document.createElement('tr');
@@ -191,8 +215,12 @@ function abrirModalCriarLivro(idCategoria) {
     const inputNovoLivro = document.getElementById('inputNovoLivro');
     const inputAutorLivro = document.getElementById('inputAutorLivro');
     const btnInserirNovoLivro = document.getElementById('btnInserirNovoLivro');
+    const btnCancelaNovoLivro = document.getElementById('btnCancelaNovoLivro');
 
     modalNovoLivro.classList.toggle('show');
+    btnCancelaNovoLivro.addEventListener('click', function(){
+        modalNovoLivro.classList.remove('show');
+    })
 
     btnInserirNovoLivro.addEventListener('click', function() {
         if ((inputNovoLivro.value === '') && (inputAutorLivro.value === '')) {
@@ -229,8 +257,13 @@ function abrirModalEditarLivro(idCategoriaLivro, idLivro, nomeLivro, autorLivro)
     const inputEditaLivro = document.getElementById('inputEditaLivro');
     const inputEditaAutorLivro = document.getElementById('inputEditaAutorLivro');
     const btnEditaLivro = document.getElementById('btnEditaLivro');
+    const btnCancelaEditaLivro = document.getElementById('btnCancelaEditaLivro');
 
     modalEditaLivro.classList.toggle('show');
+    btnCancelaEditaLivro.addEventListener('click', function(){
+        modalEditaLivro.classList.remove('show');
+    }); 
+
     inputEditaLivro.value = nomeLivro;
     inputEditaAutorLivro.value = autorLivro;
 
