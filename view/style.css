@@ -5,3 +5,32 @@
 .modalNovaCategoria.show, .modalEditaCategoria.show, .modalNovoLivro.show, .modalEditaLivro.show, .tabelaLivros.show {
     display: block;
 }
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+h1 {
+    color: #5F20E5;
+    font-size: larger;
+}
+
+h2 {
+    font-size: large;
+}
+
+main {
+    font-size: small;
+    width: 800px;
+}
+
+#sectionNovaCategoria{
+text-align: end;
+}
+#btnNovaCategoria {
+    background-color: #5F20E5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px;
+}

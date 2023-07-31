@@ -1,26 +1,21 @@
-import {
-    listarCategorias,
-    abrirModalCriarCat,
-    criarCategoria,
-    abrirModalEditarCat,
-    editaCategoria,
-    deletarCategoria,
-} from './functionsCategoria.js';
+import { Categoria } from './categoriasManager.js';
 
-import {
-    listarLivros,
-    abrirModalCriarLivro,
-    criarLivro,
-    abrirModalEditarLivro,
-    editarLivro,
-    excluirLivro,
-} from './functionsLivros.js';
+import { Livros } from './livrosManager.js';
+
+/* Criação de células em uma tabela */
+export function criarTd(data) {
+    const td = document.createElement('td');
+    td.textContent = data;
+    return td;
+};
 
 /* Carregamento do conteúdo da página */
 document.addEventListener('DOMContentLoaded', function (){
     
-    listarCategorias();
+    const categoria = new Categoria();
+    const livros = new Livros();
+    categoria.listarCategorias();
 
     const btnNovaCategoria = document.getElementById('btnNovaCategoria');
-    btnNovaCategoria.addEventListener('click', abrirModalCriarCat);
+    btnNovaCategoria.addEventListener('click', categoria.abrirModalCriarCat.bind(categoria));
 });
