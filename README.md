@@ -22,7 +22,6 @@ npx prisma migrate dev --name init
 ### Desafios e o que foi aprendido ao longo desse projeto:
 - Utilização de NodeJs, Express e Prisma
 - Refatoração
-- Depuração manual (testes exploratórios)
 
 ### Pontos de melhoria para aprender e aplicar nos próximos projetos:
 - Design Patterns
