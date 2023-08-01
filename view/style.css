@@ -26,6 +26,11 @@ main {
 #sectionNovaCategoria{
 text-align: end;
 }
+
+#tabelas {
+    display: flex;
+}
+
 #btnNovaCategoria {
     background-color: #5F20E5;
     color: white;
@@ -33,4 +38,110 @@ text-align: end;
     border-radius: 5px;
     padding: 5px 10px;
     margin: 10px;
+}
+
+#btnNovaCategoria:hover {
+    background-color: #7D40FE;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#tabelaCategorias {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 600px;
+    min-width: 600px;
+    text-align: left;
+}
+
+#tabelaLivros {
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 520px;
+    min-width: 520px;
+    min-height: 300px;
+    text-align: left;
+
+    position: absolute;
+    left: 650px;
+    top: 140px;
+}
+
+#tableHeader {
+    font-weight: bolder;
+    color: #5F20E5;
+}
+
+#captionLivros {
+    font-size: medium;
+    font-weight: bolder;
+    text-align: left;
+    background-color: #B6A5DC;
+    min-width: 460px;
+    width: 460px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#btnMostrarLivrosNovoLivro {
+    background-color: #5F20E5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px;
+}
+
+#btnMostrarLivrosNovoLivro:hover {
+    background-color: #7D40FE;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#btnEditar {
+    background-color: #E0AB22;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px;
+    border: none;
+}
+
+#btnEditar:hover {
+    background-color: #F0C350;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#btnDeletar {
+    background-color: #E54320;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px;
+    border: none;
+}
+
+#btnDeletar:hover{
+    background-color: #EF6041;
+    transition: 0.5s;
+    cursor: pointer; 
+}
+
+#modalNovaCategoria {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

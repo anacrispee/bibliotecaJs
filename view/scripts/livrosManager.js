@@ -21,11 +21,13 @@ export class Livros {
     
                     /* Caption especificando a tabela aberta */
                     const captionTabelaLivros = document.createElement('caption');
-                    captionTabelaLivros.textContent = 'livros da categoria: ' + nomeCategoria;
+                    captionTabelaLivros.id = 'captionLivros';
+                    captionTabelaLivros.textContent = nomeCategoria;
                     tabelaLivros.appendChild(captionTabelaLivros);
     
                     /* Cabeçalho da tabela livros */
                     const linhaHeader = document.createElement('tr');
+                    linhaHeader.id = 'tableHeader';
                     tabelaLivros.appendChild(linhaHeader);
                     linhaHeader.appendChild(criarTd('id'));
                     linhaHeader.appendChild(criarTd('título'));
@@ -37,9 +39,10 @@ export class Livros {
                         this.abrirModalCriarLivro(idCategoria);
                     });
                     btnNovoLivro.textContent = 'novo livro';
+                    btnNovoLivro.id = 'btnMostrarLivrosNovoLivro';
                     linhaHeader.appendChild(tdBtnNovoLivro);
                     tdBtnNovoLivro.appendChild(btnNovoLivro);
-    
+
             livros.forEach(livro => {
                 const linhaLivro = document.createElement('tr');
                 tabelaLivros.appendChild(linhaLivro);
@@ -65,6 +68,9 @@ export class Livros {
                 btnExcluiLivro.addEventListener('click', () => {
                     this.excluirLivro(livro.id_livro);
                 })
+
+                btnEditarLivro.id = 'btnEditar';
+                btnExcluiLivro.id = 'btnDeletar';
             });
         }catch(error) {
             console.log('Erro ao listar livros da categoria especificada!', error);

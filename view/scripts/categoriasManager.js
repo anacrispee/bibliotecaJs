@@ -34,6 +34,10 @@ export class Categoria {
                 tdBtnsCategoria.appendChild(btnMostrarLivros);
                 tdBtnsCategoria.appendChild(btnEditarCategoria);
                 tdBtnsCategoria.appendChild(btnDeletarCategoria);
+
+                btnMostrarLivros.id = 'btnMostrarLivrosNovoLivro';
+                btnEditarCategoria.id = 'btnEditar';
+                btnDeletarCategoria.id = 'btnDeletar';
     
                 btnMostrarLivros.addEventListener('click', () => {
                     this.livros.listarLivros(categoria.id_categoria, categoria.nome_categoria);
