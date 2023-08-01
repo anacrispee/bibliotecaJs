@@ -26,7 +26,7 @@ npx prisma migrate dev --name init
 ### Pontos de melhoria para aprender e aplicar nos próximos projetos:
 - Design Patterns
 - Domain-Driven Design
-- Clean Codde
+- Clean Code
 - Melhor organização de arquivos e pastas do repositório de um projeto
 
 #### Colaboradores:
