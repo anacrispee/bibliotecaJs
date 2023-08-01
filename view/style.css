@@ -1,12 +1,24 @@
-.modalNovaCategoria, .modalEditaCategoria, .modalNovoLivro, .modalEditaLivro, .tabelaLivros {
+.modalNovaCategoria,
+.modalEditaCategoria,
+.modalNovoLivro,
+.modalEditaLivro,
+.tabelaLivros {
     display: none;
 }
 
-.modalNovaCategoria.show, .modalEditaCategoria.show, .modalNovoLivro.show, .modalEditaLivro.show, .tabelaLivros.show {
+.modalNovaCategoria.show,
+.modalEditaCategoria.show,
+.modalNovoLivro.show,
+.modalEditaLivro.show,
+.tabelaLivros.show {
     display: block;
 }
 body {
     font-family: 'Nunito Sans', sans-serif;
+}
+
+header {
+    margin: 30px;
 }
 
 h1 {
@@ -19,8 +31,8 @@ h2 {
 }
 
 main {
+    margin: 20px;
     font-size: small;
-    width: 800px;
 }
 
 #sectionNovaCategoria{
@@ -36,7 +48,7 @@ text-align: end;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin: 10px;
 }
 
@@ -92,7 +104,7 @@ text-align: end;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 5px 8px;
     margin: 5px;
 }
 
@@ -106,7 +118,7 @@ text-align: end;
     background-color: #E0AB22;
     color: white;
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 5px 8px;
     margin: 5px;
     border: none;
 }
@@ -121,7 +133,7 @@ text-align: end;
     background-color: #E54320;
     color: white;
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 5px 8px;
     margin: 5px;
     border: none;
 }
@@ -132,7 +144,10 @@ text-align: end;
     cursor: pointer; 
 }
 
-#modalNovaCategoria {
+#modalNovaCategoria,
+#modalEditaCategoria,
+#modalNovoLivro,
+#modalEditaLivro {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -140,8 +155,86 @@ text-align: end;
 
     padding: 20px;
     width: 500px;
+    height: fit-content;
     background-color: white;
     border-radius: 5px;
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.modalTitle {
+    color:#5F20E5
+}
+
+#inputNomeCategoria,
+#inputEditaCategoria,
+#inputNovoLivro,
+#inputAutorLivro,
+#inputEditaLivro,
+#inputEditaAutorLivro {
+    border: solid 1px #B6A5DC;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    font-weight: lighter;
+    color: #9E9E9E;
+    padding: 10px;
+    margin: 20px;
+    margin-left: 0px;
+    margin-top: 5px;
+    width: 95%;
+}
+
+#inputNomeCategoria:focus,
+#inputEditaCategoria:focus,
+#inputNovoLivro:focus,
+#inputAutorLivro:focus,
+#inputEditaLivro:focus,
+#inputEditaAutorLivro:focus {
+    border: solid 2px #5F20E5 !important;
+    box-shadow: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#btnInserirNovaCat,
+#btnEditaCategoria,
+#btnInserirNovoLivro,
+#btnEditaLivro {
+    background-color: #069B5C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#btnInserirNovaCat:hover,
+#btnEditaCategoria:hover,
+#btnInserirNovoLivro:hover,
+#btnEditaLivro:hover {
+    background-color: #1DAE71;
+    transition: 0.5s;
+}
+
+#btnCancelaNovaCat,
+#btnCancelaEditaCat,
+#btnCancelaNovoLivro,
+#btnCancelaEditaLivro {
+    background-color: #E54320;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#btnCancelaNovaCat:hover,
+#btnCancelaEditaCat:hover,
+#btnCancelaNovoLivro:hover,
+#btnCancelaEditaLivro:hover {
+    background-color: #EF6041;
+    transition: 0.5s;
 }

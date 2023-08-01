@@ -41,6 +41,11 @@ export class Categoria {
     
                 btnMostrarLivros.addEventListener('click', () => {
                     this.livros.listarLivros(categoria.id_categoria, categoria.nome_categoria);
+                    if (btnMostrarLivros.textContent === 'mostrar') {
+                        btnMostrarLivros.textContent = 'esconder';
+                    }else{
+                        btnMostrarLivros.textContent = 'mostrar';
+                    };
                 });
     
                 btnEditarCategoria.addEventListener('click', () => {
