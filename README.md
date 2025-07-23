@@ -21,15 +21,6 @@ The goal was to rebuild the same concept using JavaScript and enhance the user i
 
 ---
 
-### 🚀 Installation:
-1. Clone this repository to your machine.
-2. Create the database tables and necessary configurations by running:
-```bash
-npx prisma migrate dev --name init
-```
-
----
-
 ### 💡 Challenges and lessons learned:
 - Using NodeJS, Express and Prisma
 - Refactoring and improving architecture
@@ -70,15 +61,6 @@ O objetivo foi refazer o mesmo conceito, mas com JavaScript, melhorando a interf
 - Prisma (ORM)
 - HTML
 - CSS
-
----
-
-### 🚀 Instalação:
-1. Clone este repositório em sua máquina.
-2. Crie as tabelas e configurações necessárias no banco de dados executando:
-```bash
-npx prisma migrate dev --name init
-```
 
 ---
 
